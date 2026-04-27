@@ -1,2 +1,5 @@
-# HunterMatrix
-Threat hunting and intelligence toolkit using ATT&amp;CK-style detection logic and IOC-based risk analysis.
+<p align="center">
+  <img src="https://raw.githubusercontent.com/StellarSajjid23/HunterMatrix/main/HunterMatrix_Banner.svg" />
+</p>
+
+---
